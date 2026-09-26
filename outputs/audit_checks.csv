@@ -1,0 +1,6 @@
+check,status,issue_count
+Required columns,PASS,0
+Duplicate rows,REVIEW,1
+Null cells,REVIEW,1
+Positive order value,REVIEW,1
+Unique order IDs,REVIEW,1

@@ -8,11 +8,21 @@ A dashboard or report is only as trustworthy as the data feeding it. The toolkit
 
 ## Analytical Questions
 
-- Are required fields present and correctly typed?\n- How much missingness or duplication exists?\n- Do business rules and ranges hold?\n- Do source totals reconcile to reporting totals?\n- Which failures can materially change KPIs?
+- Are required fields present and correctly typed?
+- How much missingness or duplication exists?
+- Do business rules and ranges hold?
+- Do source totals reconcile to reporting totals?
+- Which failures can materially change KPIs?
 
 ## Deliverables
 
-- Schema checks\n- Missingness report\n- Duplicate detection\n- Range and business-rule tests\n- Referential-integrity checks\n- Source-to-report reconciliation\n- Pass/review/fail summary
+- Schema checks
+- Missingness report
+- Duplicate detection
+- Range and business-rule tests
+- Referential-integrity checks
+- Source-to-report reconciliation
+- Pass/review/fail summary
 
 ## Suggested Repository Structure
 
@@ -43,3 +53,18 @@ Python, pandas, SQL, SQLite/DuckDB concepts, pytest
 ## Portfolio Standard
 
 Use synthetic or public data with documented provenance. Clearly distinguish measured results from assumptions and illustrative scenarios.
+
+## Sample Outputs
+
+Run `python src/generate_outputs.py` to reproduce the illustrative data-quality audit. The fixture is deliberately imperfect synthetic order data so the toolkit demonstrates both PASS and REVIEW states.
+
+### Executive summary
+
+See [`outputs/audit_summary.md`](outputs/audit_summary.md) for findings, decision guidance, and limitations.
+
+![Audit findings](outputs/audit_findings.png)
+
+![Orders by region](outputs/orders_by_region.png)
+
+- [`outputs/audit_checks.csv`](outputs/audit_checks.csv) — check-level results
+- [`outputs/audit_profile.csv`](outputs/audit_profile.csv) — profile summary
