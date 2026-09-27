@@ -1,70 +1,70 @@
-# Data Quality Audit Toolkit
+# Data Quality & Analytics Assurance Framework
 
-> Reusable validation layer for analytics datasets covering schema, nulls, duplicates, ranges, business rules, and KPI reconciliation.
+> **Control problem:** Can a dashboard, report, or KPI be trusted before it reaches a decision-maker?
 
-## Business Problem
+A reusable validation layer for analytics datasets covering schema, missingness, duplicates, ranges, business rules, referential integrity, and KPI reconciliation.
 
-A dashboard or report is only as trustworthy as the data feeding it. The toolkit turns common analytical failure modes into repeatable pre-publication controls.
+## Why it matters
 
-## Analytical Questions
+A polished dashboard can still be wrong when the underlying data contains structural defects. This toolkit converts common analytical failure modes into repeatable pre-publication controls.
 
-- Are required fields present and correctly typed?
-- How much missingness or duplication exists?
-- Do business rules and ranges hold?
-- Do source totals reconcile to reporting totals?
-- Which failures can materially change KPIs?
+## Validation workflow
 
-## Deliverables
+`Decision context → Profile → Validate → Reconcile → PASS / REVIEW / FAIL → KPI reliability`
 
-- Schema checks
-- Missingness report
+## Controls
+
+- Schema validation
+- Missingness analysis
 - Duplicate detection
-- Range and business-rule tests
+- Range and business-rule checks
 - Referential-integrity checks
 - Source-to-report reconciliation
-- Pass/review/fail summary
+- Check-level PASS / REVIEW / FAIL classification
 
-## Suggested Repository Structure
+## Analytical questions
 
-```text
-data-quality-audit-toolkit/
-├── data/
-├── notebooks/
-├── src/
-├── tests/
-├── outputs/
-├── README.md
-└── requirements.txt
+1. Are required fields present and correctly typed?
+2. How much missingness or duplication exists?
+3. Do ranges and business rules hold?
+4. Do source totals reconcile to reporting totals?
+5. Which failures can materially change reported KPIs?
+
+## Reproducible outputs
+
+Run:
+
+```bash
+python src/generate_outputs.py
 ```
 
-## Stack
+The project includes a deliberately imperfect synthetic order dataset so that both PASS and REVIEW states can be demonstrated.
 
-Python, pandas, SQL, SQLite/DuckDB concepts, pytest
+Outputs include:
 
-## Method
+- Audit summary
+- Check-level results
+- Data profile
+- Findings visualizations
+- Executive decision guidance
 
-1. Define the decision context and metric definitions.
-2. Profile and validate the data.
-3. Build reproducible transformations and calculations.
-4. Quantify the main drivers, scenarios, or failure modes.
-5. Validate outputs and document limitations.
-6. Produce an executive-ready decision narrative.
+## Technical stack
 
-## Portfolio Standard
+Python · pandas · SQL concepts · SQLite/DuckDB concepts · pytest
 
-Use synthetic or public data with documented provenance. Clearly distinguish measured results from assumptions and illustrative scenarios.
+## Portfolio role
 
-## Sample Outputs
+**Tier 2 — Analytics Infrastructure / Governance**
 
-Run `python src/generate_outputs.py` to reproduce the illustrative data-quality audit. The fixture is deliberately imperfect synthetic order data so the toolkit demonstrates both PASS and REVIEW states.
+This project supports the broader portfolio by demonstrating that analytical results should be validated before interpretation or publication.
 
-### Executive summary
+## Related projects
 
-See [`outputs/audit_summary.md`](outputs/audit_summary.md) for findings, decision guidance, and limitations.
+- [Business Metrics & KPI Engine](https://github.com/oluwajuwonade/business-kpi-calculator)
+- [AI-Powered Retail Sales Diagnostic](https://github.com/oluwajuwonade/AI-Powered-Retail-Sales-Diagnostic)
+- [AI Research & Evaluation Framework](https://github.com/oluwajuwonade/ai-research-evaluation-system)
 
-![Audit findings](outputs/audit_findings.png)
+## Author
 
-![Orders by region](outputs/orders_by_region.png)
-
-- [`outputs/audit_checks.csv`](outputs/audit_checks.csv) — check-level results
-- [`outputs/audit_profile.csv`](outputs/audit_profile.csv) — profile summary
+**Oluwajuwon Adediji**  
+Data & Quantitative Analyst | Analytics Quality & Decision Intelligence
