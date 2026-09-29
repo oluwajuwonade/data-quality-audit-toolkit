@@ -48,6 +48,13 @@ Outputs include:
 - Findings visualizations
 - Executive decision guidance
 
+## Important limitations
+
+- The fixture is synthetic and intentionally imperfect.
+- The checks cover common analytical-quality risks but are not a complete data-governance or observability system.
+- Reconciliation controls depend on the availability and correctness of the comparison source and metric definitions.
+- Production use would require source-specific rules, ownership, alerting, and ongoing monitoring.
+
 ## Technical stack
 
 Python · pandas · SQL concepts · SQLite/DuckDB concepts · pytest
